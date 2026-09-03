@@ -1,6 +1,7 @@
 import React from "react";
 import NewDeck from "./components/NewDeck";
 
+
 const App: React.FC = () => {
   const handleNewDeckClick = () => {
     console.log("New Deck button clicked!");
@@ -10,8 +11,8 @@ const App: React.FC = () => {
   return (
     <div>
       <NewDeck
-        appName="Flashcard App"
-        onNewDeckClick={handleNewDeckClick}
+        appName="Flashcard App aria-label"
+        onNewDeckClick={handleNewDeckClick} aria-label="Create New Deck"
       />
     </div>
   );
