@@ -66,6 +66,17 @@
 
 body {
   margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+}
+
+button,
+a,
+[role="button"] {
+  &:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
 }
 
 h1,
