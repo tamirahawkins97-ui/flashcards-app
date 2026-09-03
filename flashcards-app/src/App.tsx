@@ -3,11 +3,11 @@
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <h1 className="text-3xl font-bold underline text-blue-500">
         Hello world!
       </h1>
-    </div>
+    </main>
   )
 }  
 
