@@ -1,14 +1,20 @@
+import React from "react";
+import NewDeck from "./components/NewDeck";
 
+const App: React.FC = () => {
+  const handleNewDeckClick = () => {
+    console.log("New Deck button clicked!");
+    // Add logic here, e.g., creating a new deck or navigating to a new route.
+  };
 
-
-function App() {
   return (
-    <main className="App">
-      <h1 className="text-3xl font-bold underline text-blue-500">
-        Hello world!
-      </h1>
-    </main>
-  )
-}  
+    <div>
+      <NewDeck
+        appName="Flashcard App"
+        onNewDeckClick={handleNewDeckClick}
+      />
+    </div>
+  );
+};
 
-export default App
+export default App;
