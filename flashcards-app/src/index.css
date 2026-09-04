@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  --text: #68756f;
+  --text-h: #25342f;
+  --bg: #f4f6f2;
+  --surface: #fbfcf9;
+  --border: #d9e1da;
+  --code-bg: #eaf0eb;
+  --accent: #6b877a;
+  --accent-bg: #e2ece5;
+  --accent-border: #a8c2b0;
+  --social-bg: #edf2ee;
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Segoe UI', Roboto, system-ui, sans-serif;
+  --heading: 'Segoe UI', Roboto, system-ui, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  font: 14px/145% var(--sans);
+  letter-spacing: 0;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -34,15 +35,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #b8c8bd;
+    --text-h: #edf4ee;
+    --bg: #1c2925;
+    --surface: #24352f;
+    --border: #3d554a;
+    --code-bg: #2d433a;
+    --accent: #a8c8b2;
+    --accent-bg: #304a3d;
+    --accent-border: #6e9a7b;
+    --social-bg: #2b4037;
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
@@ -56,7 +58,7 @@
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
@@ -67,7 +69,14 @@
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--bg);
+  background:
+    linear-gradient(135deg, rgba(226, 236, 229, 0.55), transparent 42%),
+    var(--bg);
+}
+
+button,
+input {
+  font: inherit;
 }
 
 button,
@@ -82,7 +91,7 @@ a,
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
 }
 

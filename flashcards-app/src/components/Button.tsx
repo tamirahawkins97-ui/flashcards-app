@@ -1,7 +1,8 @@
 
+import React from "react";
 
 interface ButtonProps {
-    onClick: () => void;
+    onClick: React.MouseEventHandler<HTMLButtonElement>;
     children: React.ReactNode;
 }
 

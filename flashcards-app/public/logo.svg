@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Flashcards sheep logo</title>
+  <desc id="desc">A friendly sheep on a soft pastel striped background.</desc>
+  <rect width="256" height="256" fill="#fffdf4"/>
+  <path d="M0 0h34c14 33 14 70 0 103s-14 70 0 103 14 33 0 50H0z" fill="#9bd8b4"/>
+  <path d="M34 0h39c17 36 17 70 0 103s-17 70 0 103 17 36 0 50H34c14-17 14-34 0-50s-14-70 0-103S48 33 34 0z" fill="#8ed5ed"/>
+  <path d="M73 0h39c18 36 18 70 0 103s-18 70 0 103 18 36 0 50H73c17-17 17-34 0-50s-17-70 0-103S90 36 73 0z" fill="#ee91c5"/>
+  <path d="M112 0h40c17 36 17 70 0 103s-17 70 0 103 17 36 0 50h-40c18-17 18-34 0-50s-18-70 0-103S129 36 112 0z" fill="#f4b8a8"/>
+  <path d="M152 0h40c17 36 17 70 0 103s-17 70 0 103 17 36 0 50h-40c17-17 17-34 0-50s-17-70 0-103S169 36 152 0z" fill="#f7e4a8"/>
+  <path d="M192 0h64v256h-64c17-17 17-34 0-50s-17-70 0-103S209 36 192 0z" fill="#9bd8b4"/>
+  <circle cx="128" cy="128" r="83" fill="#fff" fill-opacity=".82"/>
+  <path d="M84 112c-8-20 7-39 27-37 8-24 43-25 54-3 20-9 40 10 34 30 20 8 20 38 1 47-2 25-29 35-49 22-15 13-42 8-49-11-23-3-31-33-18-48z" fill="#fff" stroke="#412826" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M98 106c-4 40 5 67 30 70 31 4 46-12 43-54-1-19-15-32-35-32-20 0-35 4-38 16z" fill="#ffd4bf" stroke="#412826" stroke-width="4"/>
+  <path d="M91 112c-13-5-25 7-28 16 10 8 21 3 29-8M165 112c14-5 25 7 29 16-10 8-21 3-29-8" fill="#ffd4bf" stroke="#412826" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="112" cy="119" r="4" fill="#412826"/><circle cx="145" cy="119" r="4" fill="#412826"/>
+  <path d="M124 130c-9-5-15 5-1 9 14-4 8-14-1-9zm0 9c-2 7-8 7-12 3m12-3c2 7 8 7 12 3" fill="none" stroke="#412826" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="81" cy="185" rx="15" ry="20" fill="#543b3a" stroke="#412826" stroke-width="4"/><ellipse cx="175" cy="185" rx="15" ry="20" fill="#543b3a" stroke="#412826" stroke-width="4"/>
+  <path d="M106 168v26c0 7 9 9 14 2v-27m24-1v27c0 7 9 9 14 2v-27" fill="#ffd4bf" stroke="#412826" stroke-width="4"/>
+</svg>

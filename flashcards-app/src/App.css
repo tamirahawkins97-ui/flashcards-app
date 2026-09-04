@@ -35,7 +35,36 @@
   font: inherit;
 }
 
-.sidebar li,
+.sidebar .deck-drag-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 9px 10px;
+  background: transparent;
+  text-align: left;
+  cursor: grab;
+}
+
+.sidebar .deck-drag-button:active,
+.sidebar li.is-dragging .deck-drag-button {
+  cursor: grabbing;
+}
+
+.deck-actions {
+  display: flex;
+  gap: 4px;
+  padding: 0 10px 8px;
+}
+
+.deck-actions button {
+  border: 1px solid var(--border);
+  padding: 3px 7px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
 .sidebar a {
   padding: 9px 10px;
 }
@@ -44,7 +73,7 @@
   cursor: pointer;
 }
 
-.sidebar li:hover,
+.sidebar .deck-drag-button:hover,
 .sidebar a:hover {
   background: var(--accent-bg);
   color: var(--accent);
@@ -87,6 +116,350 @@
   padding: clamp(32px, 7vw, 96px);
 }
 
+.study-mode {
+  text-align: left;
+}
+
+.study-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.study-header h1 {
+  margin-top: 8px;
+}
+
+.study-kicker,
+.study-progress {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.study-card {
+  min-height: 320px;
+  margin: 24px 0;
+  perspective: 1000px;
+}
+
+.study-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.study-card.is-flipped .study-card-inner {
+  transform: rotateY(180deg);
+}
+
+.study-card-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+  color: var(--text-h);
+  backface-visibility: hidden;
+  box-shadow: var(--shadow);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.study-card-back {
+  transform: rotateY(180deg);
+}
+
+.study-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.study-controls button,
+.study-header > button {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 9px 12px;
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.study-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.cards-section {
+  margin-top: 48px;
+  text-align: left;
+}
+
+.cards-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cards-heading h2 {
+  margin: 0;
+}
+
+.card-search-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-h);
+  font-size: 0.9rem;
+}
+
+.card-search {
+  width: min(100%, 420px);
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 10px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.card-match-count {
+  margin: 8px 0 16px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 40px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  text-align: center;
+}
+
+.empty-state h3,
+.empty-state p {
+  margin: 0;
+}
+
+.empty-state h3 {
+  color: var(--text-h);
+}
+
+.empty-state-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid var(--accent-border);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.empty-state button {
+  margin-top: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.empty-state-sidebar {
+  justify-items: start;
+  padding: 16px 10px;
+  border: 0;
+  text-align: left;
+}
+
+.empty-state-sidebar .empty-state-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.cards-heading button,
+.card-actions button {
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  padding: 7px 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  min-height: 180px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  backface-visibility: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-content {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  border: 0;
+  padding: 24px;
+  background: transparent;
+  color: var(--text-h);
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+}
+
+.card-actions {
+  display: flex;
+  gap: 6px;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.card-actions button {
+  border-color: var(--border);
+  padding: 5px 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 0.85rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(8, 6, 13, 0.58);
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 420px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.modal h2 {
+  margin-top: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 5px 8px;
+  background: var(--surface);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.modal form {
+  display: grid;
+  gap: 10px;
+}
+
+.modal input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 10px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.modal-actions button {
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 8px 12px;
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.modal-actions button[type="submit"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @media (max-width: 720px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -124,6 +497,15 @@
   .main-content {
     padding: 40px 20px;
   }
+
+  .study-header {
+    flex-direction: column;
+  }
+
+  .study-card,
+  .study-card-inner {
+    min-height: 240px;
+  }
 }
 
 .counter {
@@ -142,6 +524,134 @@
   &:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
+  }
+}
+
+/* Shared visual language for the flashcard workspace. */
+.app-shell {
+  width: min(1180px, 100%);
+  margin: 24px auto;
+  min-height: calc(100svh - 48px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 12px 32px rgba(53, 76, 64, 0.08);
+}
+
+.sidebar {
+  background: rgba(234, 240, 235, 0.62);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  min-height: 42px;
+}
+
+.logo img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.profile img {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--accent-border);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.new-deck button,
+.cards-heading button,
+.empty-state button,
+.modal-actions button[type="submit"] {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.new-deck button:hover,
+.cards-heading button:hover,
+.empty-state button:hover,
+.modal-actions button[type="submit"]:hover {
+  background: #587766;
+  box-shadow: 0 4px 10px rgba(75, 105, 87, 0.18);
+  transform: translateY(-1px);
+}
+
+.sidebar .deck-drag-button {
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar .deck-drag-button:hover {
+  transform: translateX(2px);
+}
+
+.deck-actions button,
+.card-actions button,
+.study-controls button,
+.study-header > button,
+.modal-actions button {
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.deck-actions button:hover,
+.card-actions button:hover,
+.study-controls button:not(:disabled):hover,
+.study-header > button:hover,
+.modal-actions button:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  transform: translateY(-1px);
+}
+
+.cards-heading {
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.cards-heading h2 {
+  font-size: 24px;
+}
+
+.card-search {
+  background: var(--surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+  outline: none;
+}
+
+.card-face,
+.study-card-face {
+  background: var(--surface);
+  box-shadow: 0 6px 16px rgba(53, 76, 64, 0.08);
+}
+
+.card-face {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover .card-face {
+  border-color: var(--accent-border);
+  box-shadow: 0 9px 20px rgba(53, 76, 64, 0.12);
+}
+
+.modal {
+  background: var(--surface);
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: 100%;
+    margin: 0;
+    min-height: 100svh;
+    border: 0;
+    border-radius: 0;
   }
 }
 
